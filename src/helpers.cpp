@@ -34,6 +34,15 @@ void printTaskOptions() {
     cout << "3. Detection and pose estimation" << endl;
 }
 
+void printModelOptions() {
+    cout << "Enter the selected model size (1-5):" << endl;
+    cout << "1. Nano" << endl;
+    cout << "2. Small" << endl;
+    cout << "3. Medium" << endl;
+    cout << "4. Large" << endl;
+    cout << "5. XLarge" << endl;
+}
+
 string getTask() {
     int task;
     vector<int> validOptions = {1, 2, 3};
@@ -50,6 +59,26 @@ string getTask() {
     }
     
     return tasks[task];
+}
+
+string getModelSize() {
+    int modelSize;
+    vector<int> validOptions = {1, 2, 3, 4, 5};
+    unordered_map<int, string> sizes {{1, "n"},
+                                      {2, "s"},
+                                      {3, "m"},
+                                      {4, "l"},
+                                      {5, "x"}};
+    printModelOptions();
+    
+    processInput(modelSize);
+    while (find(validOptions.begin(), validOptions.end(), modelSize) == validOptions.end()) {
+        cout << "\nInvalid value entered" << endl;
+        printModelOptions();
+        processInput(modelSize);
+    }
+    
+    return sizes[modelSize];
 }
 
 cv::Scalar generateColor() {

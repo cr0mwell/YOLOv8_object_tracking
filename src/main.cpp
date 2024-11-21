@@ -24,8 +24,11 @@ int main(int argc, char** argv)
     // Select task and set an appropriate model name extension
     string nameExtension = getTask();
     
+    // Set the selected the model size
+    string modelSize = getModelSize();
+    
     bool verboseOutput = false;
-    string modelFile = modelBasePath + "yolov8s" + nameExtension + ".onnx";
+    string modelFile = modelBasePath + "yolov8" + modelSize + nameExtension + ".onnx";
     
     /* READING FILES */
     
@@ -44,7 +47,7 @@ int main(int argc, char** argv)
     
     // Create video output object
     cv::VideoWriter outputVideo(outputVideoPath,
-                                cv::VideoWriter::fourcc('m', 'p', '4', 'v'),
+                                cv::VideoWriter::fourcc('M', 'J', 'P', 'G'),
                                 fps,
                                 cv::Size(frameWidth, frameHeight));
     

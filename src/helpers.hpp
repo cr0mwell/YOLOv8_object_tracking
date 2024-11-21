@@ -4,13 +4,14 @@
 #include <fstream>
 
 #include "../include/json.hpp"
-#include "structures.h"
+#include "structures.hpp"
 
 using namespace std;
 
 template<typename T> void processInput(char &option);
 bool getBoolOption(string message);
 string getTask();
+string getModelSize();
 cv::Scalar generateColor();
 vector<cv::Scalar> generateColors(int numClasses);
 int64_t getTensorParamSize(vector<int64_t> shape);

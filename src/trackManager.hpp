@@ -4,7 +4,7 @@
 #include <opencv2/opencv.hpp>
 #include <vector>
 
-#include "structures.h"
+#include "structures.hpp"
 
 using namespace std;
 
